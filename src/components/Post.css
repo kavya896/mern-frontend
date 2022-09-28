@@ -15,7 +15,7 @@
 #p-buttons{
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: center;
     flex-direction: row-reverse;
     
     
