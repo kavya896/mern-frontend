@@ -41,7 +41,9 @@ function Post(){
         dispatch(getNotes())
         if(success){
             alert("are you sure?")
+            window.location.reload()
         }
+
     },[dispatch, success])
 
 
@@ -72,9 +74,9 @@ function Post(){
                             <div id="s-eachItem" key={note._id}>
                                 <p id="p-title" >Title : {note.title}</p>
                                 <p>{note.content}</p>
-                                <a href={`/note/${note._id}`}>
+                                <Link to={`/note/${note._id}`}>
                                 <button id="p-b" className="p-ub">update</button>
-                                </a>
+                                </Link>
                                 <button id="p-b" className="p-nb" onClick={()=>deleteHandler(note._id)}>delete</button>
                             
                             </div>
