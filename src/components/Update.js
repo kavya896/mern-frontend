@@ -40,6 +40,7 @@ function UpdateNote(){
             setContent(()=>"")
             setTitle(()=>"")
             navigate("/posting")
+            window.location.reload()
         }
     
     },[dispatch,update])
