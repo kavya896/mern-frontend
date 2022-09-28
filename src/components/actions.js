@@ -94,7 +94,7 @@ export const createNotes = (title,content)=>async(dispatch)=>{
             }
         }
         console.log("created Note")
-        const data = await axios.post("http://localhost:5000/note/create",{title,content},config)
+        const data = await axios.post("https://crud-22.herokuapp.com/note/create",{title,content},config)
         console.log(data) 
         dispatch({type:NOTE_CREATED_SUCCESS,payload:data})
         
@@ -116,7 +116,7 @@ export const getNotes = ()=>async(dispatch)=>{
             }
         }
 
-        const {data} = await axios.get("http://localhost:5000/note",config)
+        const {data} = await axios.get("https://crud-22.herokuapp.com/note",config)
         console.log("data from actions",data)
         dispatch({type:NOTE_LIST_SUCCESS,payload:data})
 
@@ -135,7 +135,7 @@ export const particularNote = (id)=>async(dispatch)=>{
                 Authorization:`Bearer ${token}`
             }
         }
-        const { data } = await axios.get(`http://localhost:5000/note/${id}`,config)
+        const { data } = await axios.get(`https://crud-22.herokuapp.com/note/${id}`,config)
         console.log("...................",data)
         dispatch({type:SINGLE_NOTE_SUCCESS,payload:data})
         localStorage.setItem("updateNote",JSON.stringify(data))
@@ -156,7 +156,7 @@ export const deletenote = (id)=>async(dispatch)=>{
                 Authorization : `Bearer ${token}` 
             }
         }
-        const data = await axios.delete(`http://localhost:5000/note/delete/${id}`,config)
+        const data = await axios.delete(`https://crud-22.herokuapp.com/note/delete/${id}`,config)
         console.log("deletedOne",data)
         dispatch({type:REMOVE_NOTE_SUCCESS,payload:data})
     }catch(err){
@@ -177,7 +177,7 @@ export const updatenote = (id,title,content) =>async(dispatch)=>{
 
             }
         }
-        const {data} = await axios.post(`http://localhost:5000/note/update/${id}`,{title,content},config)
+        const {data} = await axios.post(`https://crud-22.herokuapp.com/note/update/${id}`,{title,content},config)
         console.log(data)
         dispatch({type:UPDATE_NOTE_SUCCESS,payload:data})
 
