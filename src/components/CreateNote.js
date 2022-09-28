@@ -31,7 +31,8 @@ function CreateNote(){
             setTitle(()=>"")
             setContent(()=>"")
             navigate("/posting")
-            // window.location.reload()
+            
+            window.location.reload()
 
         }
     },[createNote])
