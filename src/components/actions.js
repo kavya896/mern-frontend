@@ -13,7 +13,7 @@ export const register = (email,password,cpassword,image) => async(dispatch)=>{
         } 
         
         
-        const result = await axios.post("http://localhost:5000/register",{email,password,cpassword,image},config)
+        const result = await axios.post("https://crud-22.herokuapp.com/register",{email,password,cpassword,image},config)
         
     
         if(result){
@@ -46,7 +46,7 @@ export const login = (email,password)=>async(dispatch)=>{
             }
         }
         console.log("entered")
-        const  result  = await axios.post("http://localhost:5000/login",{email,password},config)
+        const  result  = await axios.post("https://crud-22.herokuapp.com/login",{email,password},config)
         if(result){
             if(result.data.message){
                 document.getElementById("message").innerHTML = result.data.message
@@ -72,7 +72,7 @@ export const getusers=()=>async(dispatch)=>{
                 "Content-type":"application/json"
             }
         }
-        const {data}= await axios.get("http://localhost:5000/users",config)
+        const {data}= await axios.get("https://crud-22.herokuapp.com/users",config)
         console.log("users data from actions", data)
         dispatch({type:ALL_USERSLIST_SUCCESS,payload:data})
     }catch(err){
